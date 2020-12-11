@@ -23,4 +23,45 @@ class Game {
       form.display();
     }
   }
+//P1: 0
+//p2: 140
+
+  play(){
+    form.hide();
+    textSize(20);
+    text("Game Start", 130, 100);
+    Player.getPlayerInfo();
+
+
+    if(allPlayers!= undefined){
+
+      var displayPosition = 130; 
+
+      for(var plr in allPlayers){
+
+        if(plr === "player" + player.index){
+          fill("red");
+        }
+        else{
+          fill("black");
+        }
+
+        displayPosition += 20;
+        textSize(20);
+        text(allPlayers[plr].name + ": " + allPlayers[plr].distance, 120, displayPosition);
+      }
+
+
+    
+
+
+    }
+
+
+    if(keyIsDown(UP_ARROW) && player.index!=null){
+      player.distance += 50;
+      player.update();
+
+    }
+  }
 }
